@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://cphotdgue1fe0"]
+
+[ext_resource type="Script" path="res://Entities/Actor/Tank/tank.gd" id="1_i51gm"]
+[ext_resource type="PackedScene" uid="uid://dosok2g116d4d" path="res://Entities/Weapons/Projectiles/Shell/bullet.tscn" id="2_7byy5"]
+[ext_resource type="Texture2D" uid="uid://i4l3k2ky520r" path="res://Entities/Actor/Tank/Assets/tankBody_blue_outline.png" id="3_4r2kn"]
+[ext_resource type="Texture2D" uid="uid://dgh73yhek52rq" path="res://Entities/Actor/Tank/Assets/tankBlue_barrel3_outline.png" id="4_mgupx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_amjv3"]
+radius = 24.0
+height = 52.0
+
+[node name="Tank" type="CharacterBody2D"]
+position = Vector2(171, 159)
+rotation = -1.57079
+script = ExtResource("1_i51gm")
+Bullet = ExtResource("2_7byy5")
+
+[node name="Body" type="Sprite2D" parent="."]
+texture = ExtResource("3_4r2kn")
+
+[node name="Barrel" type="Sprite2D" parent="Body"]
+position = Vector2(0, 9)
+rotation = 3.14159
+texture = ExtResource("4_mgupx")
+
+[node name="Muzzle" type="Marker2D" parent="Body/Barrel"]
+position = Vector2(5.86231e-05, -32)
+rotation = -1.57079
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_amjv3")
+metadata/_edit_lock_ = true

@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://dosok2g116d4d"]
+
+[ext_resource type="Script" path="res://Entities/Weapons/Projectiles/Shell/bullet.gd" id="1_0dwhm"]
+[ext_resource type="Texture2D" uid="uid://7v31pbqjprjg" path="res://assets/kenney_top-down-tanks-redux/PNG/Default size/bulletDark1_outline.png" id="1_ddk1y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tsr67"]
+size = Vector2(8, 13)
+
+[node name="Bullet" type="Area2D"]
+script = ExtResource("1_0dwhm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_ddk1y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+rotation = 1.5708
+shape = SubResource("RectangleShape2D_tsr67")
+
+[connection signal="body_entered" from="." to="." method="_on_Bullet_body_entered"]
